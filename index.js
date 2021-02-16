@@ -1,15 +1,19 @@
 var fs = require('fs');
 var inquirer = require('inquirer');
 
+
 // array of questions for user
 // const questions = [
 //     "Title of Project", "Description", "Table of Contents", "Installation", "Usage", "License", "Contributing", "Tests", "Questions"
 // ];
 
 // function to write README file
-// function writeToFile(fileName, data) {
-
-// }
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, function (err) {
+        if (err) throw err;
+        console.log('saved!');
+    })
+}
 
 // function to initialize program
 function init() {
@@ -17,58 +21,56 @@ function init() {
         .prompt([
             {
                 type: 'input',
-                name: 'Title',
+                name: 'title',
                 message: 'What is the title of your project?',
             },
             {
                 type: 'input',
-                name: 'Description',
+                name: 'description',
                 message: 'Please describe your project',
             },
             {
                 type: 'input',
-                name: 'Table of contents',
-                message: 'Please add the Table of contents',
-            },
-            {
-                type: 'input',
-                name: 'Installation',
+                name: 'installation',
                 message: 'Add Installation instructions',
             },
             {
                 type: 'input',
-                name: 'Usage',
+                name: 'usage',
                 message: 'Add Usage information',
             },
             {
                 type: 'input',
-                name: 'License',
+                name: 'license',
                 message: 'Add License',
                 options: '',
             },
             {
                 type: 'input',
-                name: 'Contributing',
+                name: 'contributing',
                 message: 'Add Contribution Guidelines',
             },
             {
                 type: 'input',
-                name: 'Tests',
+                name: 'tests',
                 message: 'Add test instructions',
             },
             {
                 type: 'input',
-                name: 'Questions',
+                name: 'github',
                 message: 'Enter your Github username',
             },
             {
                 type: 'input',
-                name: 'Questions',
+                name: 'email',
                 message: 'Enter your email address',
             },
         ]).then(answers => {
-            //use feedback
             console.log(answers)
+            // const { title, description, installation, usage, license, contributing, tests, questions } = data;
+            writeToFile('README.md', data, (err) => {
+                console.log(err)
+            });
         })
         .catch(error => {
             if (error.isTtyError) {
