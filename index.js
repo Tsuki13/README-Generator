@@ -1,6 +1,6 @@
 var fs = require('fs');
 var inquirer = require('inquirer');
-
+var generateMarkdown = require('./utils/generateMarkdown');
 
 // array of questions for user
 // const questions = [
@@ -67,17 +67,9 @@ function init() {
             },
         ]).then(answers => {
             console.log(answers)
-            // const { title, description, installation, usage, license, contributing, tests, questions } = data;
-            writeToFile('README.md', data, (err) => {
-                console.log(err)
-            });
-        })
-        .catch(error => {
-            if (error.isTtyError) {
-                //prompt couldn't be rendered in the current environment 
-            }
-        })
+            let markDownContent = generateMarkdown(answers)
+            writeToFile('./README.md', markDownContent)
+        });
 }
-
 // function call to initialize program
 init();
