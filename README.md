@@ -5,8 +5,8 @@
   1. [Description](#description) 
   2. [Installation](#installation-guidelines) 
   3. [Preview](#preview) 
-  4. [Contribution](#contributing) 
-  5. [Question](#questions) 
+  4. [Contributing](#contributing) 
+  5. [Questions](#questions) 
 
 ## Description
 
@@ -27,4 +27,4 @@ Command-line application that uses Node.js to dynamically create a README.md bas
 To contribute clone repo locally and commit your changes on a separate branch.
 
 ## Questions
-
+Contact me by email: Rachel7113@gmail.com
