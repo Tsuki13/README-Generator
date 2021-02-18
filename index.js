@@ -2,11 +2,6 @@ var fs = require('fs');
 var inquirer = require('inquirer');
 var generateMarkdown = require('./utils/generateMarkdown');
 
-// array of questions for user
-// const questions = [
-//     "Title of Project", "Description", "Table of Contents", "Installation", "Usage", "License", "Contributing", "Tests", "Questions"
-// ];
-
 // function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, function (err) {
@@ -14,7 +9,6 @@ function writeToFile(fileName, data) {
         console.log('saved!');
     })
 }
-
 // function to initialize program
 function init() {
     inquirer
@@ -40,10 +34,10 @@ function init() {
                 message: 'Add Usage information',
             },
             {
-                type: 'input',
+                type: 'list',
                 name: 'license',
-                message: 'Add License',
-                options: '',
+                message: 'Choose License',
+                choices: ['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3']
             },
             {
                 type: 'input',
